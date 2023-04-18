@@ -6,6 +6,7 @@ public class Main {
 		String DNI = ""; //All attributes for storing values and functionality of the program.
 		String firstName = "";
 		String lastName = "";
+		String gender = "";
 		double balance = 0;
 		int option = 1;
 		Scanner sc = new Scanner(System.in); //Scanner initiated.
@@ -17,10 +18,12 @@ public class Main {
 			firstName = sc.next();
 			System.out.print("Introduce your last name: ");
 			lastName = sc.next();
+			System.out.print("Introduce a gender: ");
+			gender = sc.next();
 			System.out.print("Introduce your balance: ");
 			balance = sc.nextDouble();
 		}
-		account = new BankAccount(DNI, firstName, lastName, balance); //Object created.
+		account = new BankAccount(DNI, firstName, lastName, gender, balance); //Object created.
 		while(option != 4) { //Menu gets executed. Once the user introduces 4 as the option. The program will exit while cycle and it will get terminated.
 			System.out.print("\n1) Deposit money.\n2) Withdraw money.\n3) Print information\n4) Exit program\n\n\nOption: "); //Menu
 			option = sc.nextInt();
