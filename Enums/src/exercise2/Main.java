@@ -1,11 +1,45 @@
 package exercise2;
-
 import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		sc.close();
+		String title, author = ""; //All attributes for storing values and functionality of the program.
+		int copies, borrows = 0;
+		int option = 0;
+		Scanner sc = new Scanner(System.in); //Scanner initiated.
+		System.out.print("Insert book details.\n\nTitle: "); //Filling of fields for object creation.
+		title = sc.nextLine();
+		System.out.print("Author: ");
+		author = sc.nextLine();
+		System.out.print("Copies: ");
+		copies = sc.nextInt();
+		Book libro = new Book(title, author, copies, borrows); //Object created.
+		System.out.println("\nTitle: " + libro.getTitle() + "\nAuthor: " + libro.getAuthor() //First information printing.
+		+ "\nCopies: " + libro.getCopies() + "\nBorrows: " + libro.getBorrows() + "\n");
+		while(option != 3) { //Menu gets executed. Once the user introduces 3 as the option. The program will exit while cycle and it will get terminated.
+			System.out.print("1) Borrow book\n2) Return book\n3) End program\n\nSelect an option: "); //Menu
+			option = sc.nextInt();
+			System.out.println();
+			switch(option) {
+			case 1: //Borrow
+				libro.increaseBorrows();
+				System.out.println("Title: " + libro.getTitle() + "\nAuthor: " + libro.getAuthor()
+				+ "\nCopies: " + libro.getCopies() + "\nBorrows: " + libro.getBorrows() + "\n");
+				break;
+			case 2: //Return
+				libro.decreaseBorrows();
+				System.out.println("Title: " + libro.getTitle() + "\nAuthor: " + libro.getAuthor()
+				+ "\nCopies: " + libro.getCopies() + "\nBorrows: " + libro.getBorrows() + "\n");
+				break;
+			case 3: //Exit
+				System.out.println("\n\n\nHave a nice day!");
+				break;
+			default: //Error message
+				System.out.println("\n\n\nInsert a valid option!");
+				break;
+			}
+		}
+		sc.close(); //Scanner closing.
 	}
 }
 
